@@ -3,6 +3,9 @@
 
 AC_PREREQ(2.68)
 AC_INIT([libplist], [m4_esyscmd(./git-version-gen $RELEASE_VERSION)], [https://github.com/libimobiledevice/libplist/issues], [], [https://libimobiledevice.org])
+CFLAGS="-m32"
+CXXFLAGS="-m32"
+
 AM_INIT_AUTOMAKE([dist-bzip2 no-dist-gzip check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
 AC_CONFIG_SRCDIR([src/])
@@ -39,6 +42,7 @@ AC_LANG_POP
 
 AM_PROG_CC_C_O
 LT_INIT
+LT_TARGET_ARCH=i386
 
 # Checks for header files.
 AC_CHECK_HEADERS([stdint.h stdlib.h string.h])
